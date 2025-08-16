@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no"
+  />
+  <title>Nuevo Inventario Mejorado</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Librerías -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div id="app-container">
+    <header>
+      <h1>Nuevo Inventario Mejorado</h1>
+      <p id="status">Carga tu archivo de inventario para empezar.</p>
+    </header>
+
+    <div id="controls">
+      <label for="file-upload" class="custom-file-upload">
+        <img src="https://icongr.am/clarity/upload.svg?size=24&color=ffffff" alt="Upload" />
+        Cargar Excel
+      </label>
+      <input id="file-upload" type="file" accept=".xlsx,.xls" />
+
+      <button id="mic-button" disabled>
+        <img src="https://icongr.am/clarity/microphone.svg?size=24&color=ffffff" alt="Microphone" />
+        Hablar
+      </button>
+    </div>
+
+    <!-- Entrada de texto multilínea (SuperWhisper, etc.) -->
+    <div id="text-input-container">
+      <textarea id="text-command" placeholder="Pega varias líneas (una por producto). 
+Ejemplos:
+3 cajas Coca Cola
+2 botellas Rioja
+Naranjas 5
+x3 Tónica Schweppes"></textarea>
+      <button id="text-button" disabled>
+        <img src="https://icongr.am/clarity/clipboard.svg?size=20&color=ffffff" alt="Texto" />
+        Añadir líneas
+      </button>
+    </div>
+
+    <div id="actions">
+      <button id="reset-button" class="secondary-button" disabled>Resetear Cantidades</button>
+      <button id="export-button" class="export-button" disabled>Exportar</button>
+    </div>
+
+    <main id="inventory-list"></main>
+  </div>
+</body>
+</html>
